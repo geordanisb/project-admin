@@ -10,5 +10,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+<<<<<<< HEAD
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+=======
+>>>>>>> 7cc9f3847bcdd75d7d54ce560cf4ec73ca345e65
 </Project>
