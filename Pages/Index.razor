@@ -1,5 +1,27 @@
 ﻿@page "/"
+@using core.GUI
 @using core.Windows
 
-<PageTitle>Users</PageTitle>
-<UserListWindow/>
+<PageTitle>Pick the listwindow type:</PageTitle>
+<AutoComplete
+              OnValueChanged="@OnValueChanged"
+              />
+
+@if (type != null)
+{
+    <DynamicComponent Type="@type"/>
+}
+@code{
+    Type type { get; set; }
+
+    void OnValueChanged(string rec) {
+        type = null;
+        if (!string.IsNullOrWhiteSpace(rec))
+        {
+            var s = $"core.Windows.{rec}ListWindow,core";
+            type = Type.GetType(s);
+        }
+
+    }
+
+}
